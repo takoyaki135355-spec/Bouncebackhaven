@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c876vs2ux5fut" path="res://script/background.gd" id="2_xpwal"]
 
 [node name="Node2D" type="Node2D" unique_id=656841987]
+script = ExtResource("2_xpwal")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1554313897]
 repeat_size = Vector2(512, 0)

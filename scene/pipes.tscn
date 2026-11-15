@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cqwbh4v2b700r"]
 
 [ext_resource type="Texture2D" uid="uid://dhuyhanmr0rcm" path="res://assets/pixil-frame-0.png" id="1_86036"]
+[ext_resource type="Script" uid="uid://dsvjio4hdbn6n" path="res://scene/pipes.gd" id="1_f3wf7"]
+[ext_resource type="Script" uid="uid://1u0nvpk0oc1t" path="res://script/pipes.gd" id="1_rmqpm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aejj1"]
 size = Vector2(112, 367.5)
@@ -8,20 +10,25 @@ size = Vector2(112, 367.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fukh"]
 size = Vector2(121.5, 367.5)
 
-[node name="pipes" type="Node2D" unique_id=1410866581]
+[node name="pipes" type="Node2D" unique_id=2034983204]
+script = ExtResource("1_f3wf7")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=812749050]
-autoscroll = Vector2(-110, 0)
+repeat_size = Vector2(512, 0)
+autoscroll = Vector2(-150, 0)
+script = ExtResource("1_rmqpm")
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=868128351]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=868128351]
 texture = ExtResource("1_86036")
 
-[node name="Area2D" type="Area2D" parent="Parallax2D" unique_id=2100041243]
+[node name="PipeCollider" type="Area2D" parent="." unique_id=2100041243]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax2D/Area2D" unique_id=117440791]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeCollider" unique_id=117440791]
 position = Vector2(0, -328)
 shape = SubResource("RectangleShape2D_aejj1")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Parallax2D/Area2D" unique_id=1661465008]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PipeCollider" unique_id=1661465008]
 position = Vector2(0.25, 326.25)
 shape = SubResource("RectangleShape2D_8fukh")
+
+[connection signal="body_entered" from="PipeCollider" to="." method="_on_pipe_collider_body_entered"]

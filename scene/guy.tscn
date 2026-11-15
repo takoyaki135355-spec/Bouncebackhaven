@@ -1,23 +1,46 @@
 [gd_scene format=3 uid="uid://diqvnhyflovn7"]
 
+[ext_resource type="Script" uid="uid://c4iyk2y4udmpn" path="res://script/guy.gd" id="1_set83"]
 [ext_resource type="Texture2D" uid="uid://c4q34qokn1ban" path="res://assets/fullbody.png" id="1_wdc5g"]
+[ext_resource type="Texture2D" uid="uid://djckpqkr6yggw" path="res://assets/gameover.png" id="3_6xqhc"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sg64q"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ka324"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fukh"]
-size = Vector2(71, 23.500015)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka324"]
+size = Vector2(269, 468)
 
-[node name="Guy" type="Node2D" unique_id=1624186373]
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1683615562]
+mass = 1.5
+physics_material_override = SubResource("PhysicsMaterial_ka324")
+script = ExtResource("1_set83")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1819008282]
-position = Vector2(0, -150)
-mass = 2.0
-physics_material_override = SubResource("PhysicsMaterial_sg64q")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1462720487]
-position = Vector2(-1.5, 54.750008)
-shape = SubResource("RectangleShape2D_8fukh")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=818415272]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2105241447]
+position = Vector2(-1, 0)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_wdc5g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=286476355]
+position = Vector2(-6, 6)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_ka324")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=275360298]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1255097319]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=780593816]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6xqhc")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

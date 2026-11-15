@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b5bkj157l43mm" path="res://scene/background.tscn" id="2_3cebx"]
 [ext_resource type="PackedScene" uid="uid://6mucf8j523k" path="res://scene/trampolinecursor.tscn" id="3_tytcy"]
 [ext_resource type="PackedScene" uid="uid://cqwbh4v2b700r" path="res://scene/pipes.tscn" id="4_3cebx"]
+[ext_resource type="Script" uid="uid://c5i3e338enhdw" path="res://script/pipe_spawner.gd" id="5_tytcy"]
 
 [node name="view" type="Node2D" unique_id=1328936189]
 
@@ -18,5 +19,14 @@ position = Vector2(284, 296)
 position = Vector2(108, 429)
 scale = Vector2(0.5, 0.5)
 
-[node name="pipes" parent="." unique_id=1410866581 instance=ExtResource("4_3cebx")]
-position = Vector2(590, 284)
+[node name="Marker2D" type="Marker2D" parent="." unique_id=745671879]
+position = Vector2(102, 325)
+
+[node name="Pipe_Spawner" type="Node2D" parent="." unique_id=274735693]
+script = ExtResource("5_tytcy")
+pipe_scene = ExtResource("4_3cebx")
+gaps_between_pipes = 400
+
+[node name="Timer" type="Timer" parent="Pipe_Spawner" unique_id=1131781651]
+wait_time = 0.5
+autostart = true
