@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://diqvnhyflovn7"]
+
+[ext_resource type="Texture2D" uid="uid://c4q34qokn1ban" path="res://assets/fullbody.png" id="1_wdc5g"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sg64q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fukh"]
+size = Vector2(71, 23.500015)
+
+[node name="Guy" type="Node2D" unique_id=1624186373]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1819008282]
+position = Vector2(0, -150)
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_sg64q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1462720487]
+position = Vector2(-1.5, 54.750008)
+shape = SubResource("RectangleShape2D_8fukh")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=818415272]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_wdc5g")

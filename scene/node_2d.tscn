@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b50l6mhsb787y"]
+
+[ext_resource type="PackedScene" uid="uid://diqvnhyflovn7" path="res://scene/guy.tscn" id="1_ppd22"]
+[ext_resource type="PackedScene" uid="uid://b5bkj157l43mm" path="res://scene/background.tscn" id="2_3cebx"]
+[ext_resource type="PackedScene" uid="uid://6mucf8j523k" path="res://scene/trampolinecursor.tscn" id="3_tytcy"]
+[ext_resource type="PackedScene" uid="uid://cqwbh4v2b700r" path="res://scene/pipes.tscn" id="4_3cebx"]
+
+[node name="view" type="Node2D" unique_id=1328936189]
+
+[node name="Guy" parent="." unique_id=1624186373 instance=ExtResource("1_ppd22")]
+z_index = 3
+position = Vector2(111, 364)
+
+[node name="bg" parent="." unique_id=656841987 instance=ExtResource("2_3cebx")]
+position = Vector2(284, 296)
+
+[node name="trampoline" parent="." unique_id=472861930 instance=ExtResource("3_tytcy")]
+position = Vector2(108, 429)
+scale = Vector2(0.5, 0.5)
+
+[node name="pipes" parent="." unique_id=1410866581 instance=ExtResource("4_3cebx")]
+position = Vector2(590, 284)

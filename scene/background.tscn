@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b5bkj157l43mm"]
+
+[ext_resource type="Texture2D" uid="uid://bajg1qqps0gs6" path="res://assets/background.png" id="1_jirmm"]
+[ext_resource type="Script" uid="uid://c876vs2ux5fut" path="res://script/background.gd" id="2_xpwal"]
+
+[node name="Node2D" type="Node2D" unique_id=656841987]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1554313897]
+repeat_size = Vector2(512, 0)
+autoscroll = Vector2(-100, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1440468019]
+texture = ExtResource("1_jirmm")
+centered = false
+offset = Vector2(0, -256)
+script = ExtResource("2_xpwal")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1532235345]
+z_index = -5
